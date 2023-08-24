@@ -12,20 +12,17 @@ const ContactList = () => {
     const dispatch = useDispatch();
 
 const {firstName , lastName ,email} = useSelector( (state)=>state.contact);
-const {editContact } = useSelector( (state)=>state.action);
 
-console.log(firstName)
-console.log(typeof(firstName))
 
   return (
-    <div>
+    <div className='flex flex-col gap-10'>
 
    
     {/* firstName */}
     <div>
         {
             firstName.map( (name)=>{
-                return(<p>{name}</p>);
+                return(<p> FIRST NAME: {name}</p>);
             })
         }
     </div>
@@ -34,7 +31,7 @@ console.log(typeof(firstName))
     <div>
         {
             lastName.map( (name)=>{
-                return(<p>{name}</p>);
+                return(<p> LAST NAME: {name}</p>);
             })
         }
     </div>
@@ -43,16 +40,24 @@ console.log(typeof(firstName))
     <div>
         {
             email.map( (name)=>{
-                return(<p>{name}</p>);
+                return(<p> EMAIL: {name}</p>);
             })
         }
     </div>
 
+    <div>
     <button onClick={()=>{ Navigate("/dashboard/contacts/edit-contact") ;dispatch(setEditContact(true)) }}>
-        Edit Contact
+     Edit Contact
     </button>
 
+    </div>
    
+
+   
+
+    
+    
+ 
 
     </div>
   )

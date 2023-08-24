@@ -25,7 +25,9 @@ const {editContact } = useSelector( (state)=>state.action);
                 const formData = new FormData();
         
                 formData.append("firstname",data.firstname);
-                formData.append("lastname",data.lastname)
+                formData.append("lastname",data.lastname);
+                formData.append("email",data.email)
+
             }
           }
         
@@ -45,6 +47,7 @@ const {editContact } = useSelector( (state)=>state.action);
 
             setValue("firstname",firstName);
             setValue("lastname",lastName);
+            setValue("email",email)
     
         }
 
@@ -81,7 +84,7 @@ const {editContact } = useSelector( (state)=>state.action);
 
 
   return (
-    <form onSubmit={handleSubmit(SubmitForm)}>
+    <form onSubmit={handleSubmit(SubmitForm)} >
 
 
  <div className="flex flex-col gap-2 lg:w-[48%]">

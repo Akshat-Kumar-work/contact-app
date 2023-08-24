@@ -13,7 +13,7 @@ const Main = () => {
 
 
   return (
-    <div>
+    <div className=' flex flex-col flex-wrap' >
 
     <button onClick={()=> Navigate("/dashboard/contacts/create-contact")}>
         Create Contact
