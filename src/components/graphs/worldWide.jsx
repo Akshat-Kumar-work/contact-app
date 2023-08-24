@@ -50,6 +50,7 @@ const WorldWide = () => {
                   options={state.options}
                   series={state.series}
                   type="line"
+                 
                 
                 />
         </div>

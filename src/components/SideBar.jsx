@@ -18,7 +18,7 @@ const SideBar = () => {
 
 <div  className="flex flex-wrap lg:h-[calc(100vh-3.5rem)] min-w-[220px] flex-row lg:flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 py-10">
 
-    <div className=' flex flex-row lg:flex-col flex-wrap'>
+    <div className=' flex flex-row lg:flex-col flex-wrap gap-8'>
         {
           sidebarLinks.map( (element)=>{
             return(

@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch , useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {setEditContact} from "../../slices/actionSlice"; 
 
 
 
+
 const ContactList = () => {
+
+    const [display , setdisplay] = useState(false);
+
+
+
   const Navigate = useNavigate();
 
 
@@ -14,8 +20,22 @@ const ContactList = () => {
 const {firstName , lastName ,email} = useSelector( (state)=>state.contact);
 
 
+useEffect( ()=>{
+
+    if(firstName.length !== 0 ){
+        setdisplay(true);
+        }
+
+},[])
+
+console.log(display)
+
+
+
   return (
     <div className='flex flex-col gap-10'>
+
+    
 
    
     {/* firstName */}
@@ -45,12 +65,14 @@ const {firstName , lastName ,email} = useSelector( (state)=>state.contact);
         }
     </div>
 
-    <div>
-    <button onClick={()=>{ Navigate("/dashboard/contacts/edit-contact") ;dispatch(setEditContact(true)) }}>
+       
+
+    <button className={ display ? "" : " hidden"} 
+    onClick={()=>{ Navigate("/dashboard/contacts/edit-contact") ; dispatch(setEditContact(true)) }}>
      Edit Contact
     </button>
 
-    </div>
+   
    
 
    

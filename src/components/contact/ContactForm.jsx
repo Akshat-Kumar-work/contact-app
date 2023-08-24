@@ -6,7 +6,7 @@ import {setFirstName , setLastName , setEmail} from "../../slices/contactSlice"
 const ContactForm = () => {
 
 const {firstName , lastName , email} = useSelector( (state)=>state.contact);
-const {editContact } = useSelector( (state)=>state.action);
+const {editContact ,createContact } = useSelector( (state)=>state.action);
  
 
     const dispatch = useDispatch();
@@ -30,14 +30,21 @@ const {editContact } = useSelector( (state)=>state.action);
 
             }
           }
-        
-        localStorage.setItem(firstName,data.firstname) ;
-        localStorage.setItem(lastName,data.lastname) ;
-        localStorage.setItem(email,data.email) ;
 
-        dispatch(setFirstName([...firstName ,data.firstname]));
-        dispatch(setLastName([ ...lastName ,data.lastname]));
-        dispatch(setEmail([ ...email ,data.email]));
+          
+          if(createContact){
+
+            localStorage.setItem(firstName,data.firstname) ;
+            localStorage.setItem(lastName,data.lastname) ;
+            localStorage.setItem(email,data.email) ;
+    
+            dispatch(setFirstName([ data.firstname]));
+            dispatch(setLastName([data.lastname]));
+            dispatch(setEmail([data.email]));
+
+          }
+        
+      
 
         
     }
