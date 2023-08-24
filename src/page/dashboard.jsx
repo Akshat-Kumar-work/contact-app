@@ -4,7 +4,7 @@ import SideBar from '../components/SideBar'
 
 const dashboard = () => {
   return (
-    <div className="relative  flex-wrap flex min-h-[calc(100vh-3.5rem)]">
+    <div className="relative  flex-wrap flex min-h-[calc(100vh-3.5rem)] lg:flex-row flex-col">
 
       {/* sidebar for links */}
        <SideBar/>
